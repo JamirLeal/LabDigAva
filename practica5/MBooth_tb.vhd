@@ -46,8 +46,6 @@ ARCHITECTURE behavior OF MB_tb IS
          z : OUT  std_logic_vector(7 downto 0)
         );
     END COMPONENT;
-	 
-    signal clk : std_logic := '0';
 
    --Inputs
    signal a : std_logic_vector(3 downto 0) := (others => '0');
@@ -55,10 +53,8 @@ ARCHITECTURE behavior OF MB_tb IS
 
  	--Outputs
    signal z : std_logic_vector(7 downto 0);
-   -- No clocks detected in port list. Replace <clock> below with 
-   -- appropriate port name 
  
-    constant clk_period : time := 10 ns;
+ 
  
 BEGIN
  
@@ -68,16 +64,6 @@ BEGIN
           b => b,
           z => z
         );
-
-   -- Clock process definitions
-   clk_process :process
-   begin
-		clk <= '0';
-		wait for clk_period/2;
-		clk <= '1';
-		wait for clk_period/2;
-   end process;
- 
 
    -- Stimulus process
    stim_proc: process
