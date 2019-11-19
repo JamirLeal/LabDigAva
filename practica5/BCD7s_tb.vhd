@@ -45,8 +45,6 @@ ARCHITECTURE behavior OF bToSev IS
          sevSeg : OUT  std_logic_vector(6 downto 0)
         );
     END COMPONENT;
-    
-	signal clock : std_logic := '0';
 	
    --Inputs
    signal bcd : std_logic_vector(3 downto 0) := (others => '0');
@@ -56,8 +54,6 @@ ARCHITECTURE behavior OF bToSev IS
    -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
  
-   constant clock_period : time := 10 ns;
- 
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
@@ -65,15 +61,6 @@ BEGIN
           bcd => bcd,
           sevSeg => sevSeg
         );
-
-   -- Clock process definitions
-   clock_process :process
-   begin
-		clock <= '0';
-		wait for clock_period/2;
-		clock <= '1';
-		wait for clock_period/2;
-   end process;
  
 
    -- Stimulus process
