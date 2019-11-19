@@ -1,43 +1,28 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
- 
-entity bcdToSeg is
-Port(bcd : in STD_LOGIC_VECTOR(3 downto 0);
-sevSeg : out STD_LOGIC_VECTOR(6 downto 0));
-end bcdToSeg;
- 
-architecture Behavioral of bcdToSeg is
- 
-begin
- 
-process(bcd)
-begin
- 
-case bcd is
-when "0000" =>
-sevSeg <= "0000001";
-when "0001" =>
-sevSeg <= "1001111";
-when "0010" =>
-sevSeg <= "0010010";
-when "0011" =>
-sevSeg <= "0000110";
-when "0100" =>
-sevSeg <= "1001100";
-when "0101" =>
-sevSeg <= "0100100";
-when "0110" =>
-sevSeg <= "0100000"; 
-when "0111" =>
-sevSeg <= "0001111"; 
-when "1000" =>
-sevSeg <= "0000000";
-when "1001" =>
-sevSeg <= "0000100";
-when others =>
-sevSeg <= "1111111";
-end case;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
 
-end process;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+ 
+ENTITY bcdToSeg IS
+PORT(bcd : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+sevSeg : OUT STD_LOGIC_VECTOR(6 DOWNTO 0));
+END bcdToSeg;
+ 
+ARCHITECTURE Behavioral OF bcdToSeg IS
+ 
+BEGIN
 
-end Behavioral;
+sevSeg <= "0000001" WHEN bcd  = "0000" ELSE
+"1001111" WHEN bcd = "0001" ELSE
+"0010010" WHEN bcd = "0010" ELSE
+"0000110" WHEN bcd = "0011" ELSE
+"1001100" WHEN bcd = "0100" ELSE
+"0100100" WHEN bcd = "0101" ELSE
+"0100000" WHEN bcd = "0110" ELSE
+"0001111" WHEN bcd = "0111" ELSE
+"0000000" WHEN bcd = "1000" ELSE
+"0000100" WHEN bcd = "1001" ELSE
+"1111111";
+
+END Behavioral;
