@@ -26,3 +26,5 @@ sevSeg <= "0000001" WHEN bcd  = "0000" ELSE
 "1111111";
 
 END Behavioral;
+
+ 
