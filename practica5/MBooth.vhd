@@ -89,3 +89,4 @@ BEGIN
 	z7 : HalfAdder PORT MAP('1', carry(9), z(7), carry(10));
 
 END Behavioral;
+		
