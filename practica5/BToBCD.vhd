@@ -46,3 +46,4 @@ PROCESS(bin)
   END PROCESS;            
   
 END Behavioral;
+
